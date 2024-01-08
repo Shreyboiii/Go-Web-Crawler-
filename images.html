@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2em; /* Adjust the font size as needed */
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            margin: 10px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 200px;
+        }
+
+        .image-container a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .image-container img {
+            width: 100%;
+            object-fit: contain;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .image-info {
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .image-info p {
+            margin: 0; /* Remove default margin */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-decoration: underline; /* Add underline to p */
+        }
+
+        .image-info p2 {
+            margin: 5px 0 0; /* Adjust margin for separation */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .image-info a {
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Images Result:</h1>
+    <div class="image-row">
+        {{range .}}
+            <div class="image-container">
+                <a href="{{.Src}}">
+                    <img src="{{.Src}}" alt="{{.Alt}}">
+                </a>
+                <div class="image-info">
+                    <p><a href="{{.URL}}">{{.Title}}</a></p>
+                    <p2>{{.Alt}}</p2>
+                </div>
+            </div>
+        {{end}}
+    </div>
+</body>
+</html>
